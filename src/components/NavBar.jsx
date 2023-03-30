@@ -1,22 +1,23 @@
 
-function Navbar({ index, setIndex, pokemonList }) {
-
-    const handlePreviousPokemon = () => {
-        setIndex(index - 1)
-    }
-    const handleNextPokemon = () => {
-        setIndex(index + 1)
-    }
+function NavBar(props) {
+    const { pokemonList, index, setIndex } = props;
 
     return (
         <nav>
-            {index > 0 && <button onClick={handlePreviousPokemon}>Précédent</button>}
-            {index < pokemonList.length - 1 && <button onClick={handleNextPokemon}>Suivant</button>}
+            {pokemonList.map((pokemon, i) => (
+                <button
+                    key={pokemon.name}
+                    onClick={() => setIndex(i)}
+                    disabled={index === i}
+                >
+                    {pokemon.name}
+                </button>
+            ))}
         </nav>
     );
 }
 
-export default Navbar;
+export default NavBar;
 
 
 
