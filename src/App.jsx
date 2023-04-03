@@ -4,9 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
 import Navbar from './components/NavBar'
+import React, { useEffect } from "react";
 
 function App() {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);
+
 
   return (
     <div>
